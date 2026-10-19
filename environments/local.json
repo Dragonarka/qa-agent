@@ -1,0 +1,8 @@
+{
+  "name": "local",
+  "adapter": "local-fixture",
+  "headless": true,
+  "adapterOptions": {
+    "fixturePath": "../fixtures/login-fixture.html"
+  }
+}

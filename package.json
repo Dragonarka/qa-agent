@@ -1,0 +1,24 @@
+{
+  "name": "qa-agent",
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "format": "prettier --write \"**/*.{ts,tsx,md,json,yaml,yml}\""
+  },
+  "devDependencies": {
+    "turbo": "^2.3.0",
+    "prettier": "^3.0.0"
+  },
+  "dependencies": {
+    "@qa-agent/core": "workspace:*"
+  },
+  "packageManager": "pnpm@9.15.9",
+  "engines": {
+    "node": ">=24",
+    "pnpm": ">=9"
+  }
+}

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>qa-agent fixture: login form</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        max-width: 360px;
+        margin: 4rem auto;
+      }
+      #error {
+        color: #b00020;
+      }
+      [hidden] {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Sign in</h1>
+    <form id="login-form">
+      <label for="username">Username</label>
+      <input id="username" name="username" type="text" />
+
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" />
+
+      <button id="submit" type="submit">Sign in</button>
+    </form>
+
+    <div id="welcome" hidden></div>
+    <div id="error" hidden>Invalid credentials</div>
+
+    <script>
+      document.getElementById('login-form').addEventListener('submit', (event) => {
+        event.preventDefault();
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value.trim();
+
+        const welcome = document.getElementById('welcome');
+        const error = document.getElementById('error');
+
+        if (username && password) {
+          welcome.textContent = `Welcome, ${username}!`;
+          welcome.hidden = false;
+          error.hidden = true;
+          document.body.setAttribute('data-logged-in', 'true');
+        } else {
+          welcome.hidden = true;
+          error.hidden = false;
+        }
+      });
+    </script>
+  </body>
+</html>
